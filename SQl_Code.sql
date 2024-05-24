@@ -1,4 +1,4 @@
--- Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
+- Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 select
     distinct market
 from
@@ -6,7 +6,7 @@ from
 where
     customer = 'Atliq Exclusive' and region = 'APAC';
     
--- What is the percentage of unique product increase in 2021 vs. 2020?
+- What is the percentage of unique product increase in 2021 vs. 2020?
 with info as (
 select
     count(distinct case when fiscal_year = 2020 then product_code end) as unique_products_2020,
@@ -21,7 +21,7 @@ select
 from
     info;
     
--- Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. 
+- Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. 
 select
     segment,
     count(product_code) as unique_product_counts
@@ -32,7 +32,7 @@ group by
 order by
     unique_product_counts desc;
     
--- Which segment had the most increase in unique products in 2021 vs 2020?
+- Which segment had the most increase in unique products in 2021 vs 2020?
 with info_ as (
 select
     segment,
@@ -52,7 +52,7 @@ select
 from
     info_;
     
--- Get the products that have the highest and lowest manufacturing costs.
+- Get the products that have the highest and lowest manufacturing costs.
  select
     fact_manufacturing_cost.product_code,
     product,
@@ -63,8 +63,8 @@ from
 order by
     manufacturing_cost desc;
     
--- Generate a report which contains the top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 
--- and in the Indian market.
+- Generate a report which contains the top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 
+- and in the Indian market.
 select
     dim_customer.customer_code,
     customer,
